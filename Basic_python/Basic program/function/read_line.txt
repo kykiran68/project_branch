@@ -1,0 +1,7 @@
+1 - def readfile_content(filename):
+2 - with open(filename,'r') as file:
+3 - data = file.read()
+4 - print(data)
+5 - print(file.closed)
+6 - print(file.closed)
+7 - readfile_content('read_file')
