@@ -1,0 +1,17 @@
+API : Application Programming Interface
+Protocol : http
+Http Method:
+
+GET : This method will get the information of particular data.
+POST : Post method help to do create new entry in the database.
+DELETE :  Delete the information from database
+PUT : Update all the information of existing data.
+PATCH : Update specific information of existing data.
+
+Response code:
+
+100-199: Information related response
+200-299: Successful operation
+300-399: Directional operation
+400-499: Client side error
+500-599: Server side error

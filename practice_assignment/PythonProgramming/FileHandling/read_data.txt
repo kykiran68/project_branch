@@ -1,0 +1,8 @@
+1.You can run git rebase --abort
+2.to completely 4454533545 user3@yahoo.com undo the rebase.
+3.Git will return user2@facebook.com you to your branch's
+4.state as it was before 5645645654 git rebase was
+5.called. 9989898891 You can admin@gmail.com run git rebase --skip
+6.to completely skip the commit. That means
+7.that none of user4@hotmail.com the changes introduced by the
+8.problematic commit will be included.
