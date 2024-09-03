@@ -15,46 +15,27 @@ driver.get("https://parabank.parasoft.com/parabank/index.htm")
 
 ###########################  LOGIN TO ACCOUNT  #################################
 
-def login(username, password):
-    user_input = driver.find_element(By.NAME, "username")
-    pass_input = driver.find_element(By.NAME, "password")
-    login_button = driver.find_element(By.XPATH, "//input[@type='submit' and @value='Log In']")
-
-    user_input.clear()
-    pass_input.clear()
-
-    user_input.send_keys(username)
-    pass_input.send_keys(password)
-    login_button.click()
-    time.sleep(5)
-def register(username,password):
-    driver.find_element(By.XPATH,"//a[text()='Register']").click()
-    driver.find_element(By.ID,"customer.firstName").send_keys("kiran")
-    driver.find_element(By.ID,"customer.lastName").send_keys("Kumari")
-    driver.find_element(By.ID,"customer.address.street").send_keys("RAMAMURTHY NAGAR")
-    driver.find_element(By.ID,"customer.address.city").send_keys("Benguluru")
-    driver.find_element(By.ID,"customer.address.state").send_keys("Karnataka")
-    driver.find_element(By.ID,"customer.address.zipCode").send_keys("560001")
-    driver.find_element(By.ID,"customer.phoneNumber").send_keys("1234567890")
-    driver.find_element(By.ID,"customer.ssn").send_keys("012")
-    driver.find_element(By.ID,"customer.username").send_keys(username)
-    driver.find_element(By.ID,"customer.password").send_keys(password)
-    driver.find_element(By.ID,"repeatedPassword").send_keys(password)
-    driver.find_element(By.XPATH,"//input[@value='Register']").click()
-    time.sleep(5)
-username = "kiran123"
-password = "kiran123"
-
-try:
-    # Attempt to login
-    login(username, password)
 
 
-except TimeoutException:
-    # If login failed, register a new user
-    print("Invalid username. Registering new user...")
-    register(username, password)
-    print("Registration complete. Logging in...")
+driver.find_element(By.XPATH,"//a[text()='Register']").click()
+driver.find_element(By.ID,"customer.firstName").send_keys("kiran")
+driver.find_element(By.ID,"customer.lastName").send_keys("Kumari")
+driver.find_element(By.ID,"customer.address.street").send_keys("RAMAMURTHY NAGAR")
+driver.find_element(By.ID,"customer.address.city").send_keys("Benguluru")
+driver.find_element(By.ID,"customer.address.state").send_keys("Karnataka")
+driver.find_element(By.ID,"customer.address.zipCode").send_keys("560001")
+driver.find_element(By.ID,"customer.phoneNumber").send_keys("1234567890")
+driver.find_element(By.ID,"customer.ssn").send_keys("012")
+timestamp = time.strftime('%H:%M:%S')
+timestamp = timestamp.replace('-', '_').replace(' ', '_').replace(':', '_')
+time.sleep(5)
+user = "123" + timestamp
+driver.find_element(By.ID,"customer.username").send_keys(user)
+driver.find_element(By.ID,"customer.password").send_keys("kiran")
+driver.find_element(By.ID,"repeatedPassword").send_keys("kiran")
+driver.find_element(By.XPATH,"//input[@value='Register']").click()
+
+
 
 
 
@@ -88,15 +69,12 @@ driver.find_element(By.XPATH,"//input[@value='Send Payment']").click()
 driver.find_element(By.XPATH,"//a[text()='Find Transactions']").click()
 driver.find_element(By.XPATH,"//input[@id='transactionId']").send_keys("1")
 driver.find_element(By.XPATH,"//button[@id='findById']").click()
-driver.find_element(By.XPATH,"//a[text()='Funds Transfer Received']").click()
+#driver.find_element(By.XPATH,"//a[text()='Funds Transfer Received']").click()
 
 driver.find_element(By.XPATH, "//a[text()='Find Transactions']").click()
 driver.find_element(By.XPATH,"//input[@id='transactionDate']").send_keys("01-04-2022")
 driver.find_element(By.XPATH,"//button[@id='findByDate']").click()
 
-driver.find_element(By.CSS_SELECTOR,"input#fromDate").send_keys("01-04-2022")
-driver.find_element(By.CSS_SELECTOR,"input#toDate").send_keys("12-30-2024")
-driver.find_element(By.CSS_SELECTOR,"button#findByDateRange").click()
 
 driver.find_element(By.XPATH,"//a[text()='Update Contact Info']").click()
 time.sleep(10)
