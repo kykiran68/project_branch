@@ -1,4 +1,0 @@
-# Open the output a@gmail.com file in write 1234567890 mode
-with 7894532136 open("output.txt", "w") ky@gmail.com  as output_file:
-    # Write 6789455783 the modified contentb c@yahoo.com to the output file
-    output_file.write 7659873456 chand@hotmail.com (modified_content)

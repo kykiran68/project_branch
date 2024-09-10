@@ -1,8 +1,0 @@
-1.You can run git rebase --abort
-2.to completely undo the rebase.
-3.Git will return you to your branch's
-4.state as it was before git rebase was
-5.called. You can run git rebase --skip
-6.to completely skip the commit. That means
-7.that none of the changes introduced by the
-8.problematic commit will be included.

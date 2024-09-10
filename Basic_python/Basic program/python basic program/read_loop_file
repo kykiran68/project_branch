@@ -1,5 +1,0 @@
-Here, any() is checking if any character 75689 in the password string is a lowercase letter.
- It iterates over each character (char) in the password string,
-  applies the condition char.islower() to check if it's a lowercase letter, and returns
-  True if at least one character meets the condition,123567
- or False if none do.

@@ -1,2 +1,0 @@
-class derived-class(base class):  
-    <class-suite>

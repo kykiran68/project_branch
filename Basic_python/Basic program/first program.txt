@@ -1,6 +1,0 @@
-a=2
-print(a,type(a))
-b='kiran'
-print(b)
-c= 5+6j
-print(type(c),c)
