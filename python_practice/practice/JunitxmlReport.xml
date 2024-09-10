@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.231" timestamp="2024-08-10T12:52:27.132753" hostname="DESKTOP-BAHKCM1"><testcase classname="test_pra" name="test_add1" time="0.002" /><testcase classname="test_pra" name="test_sub1" time="0.002" /><testcase classname="test_pract" name="test_add" time="0.002" /><testcase classname="test_pract" name="test_sub" time="0.001" /><testcase classname="test_pract" name="test_name" time="0.002"><failure message="assert False">def test_name():
+        a = "ki"
+        b = "ku"
+&gt;       assert False
+E       assert False
+
+test_pract.py:18: AssertionError</failure></testcase></testsuite></testsuites>

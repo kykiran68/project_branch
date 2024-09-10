@@ -1,0 +1,45 @@
+# pytest command to execute the test cases with marker
+python -m pytest -v -s -m smoke .\test\
+
+# command to generate HTML report
+package name : pytest-html
+python -m pytest -v .\test\test_parametrize_values.py --html=report.html
+
+# generate graphical report
+package name : pytest-html-reporter
+python -m pytest -v .\test\test_parametrize_values.py --html-report=logs/report.html
+
+# execute the test cases parallely :
+package name : pytest-xdist
+python -m pytest -v -n auto .\test\test_multiple_cases_parallely.py
+
+# Test execution in specific order
+# install pytest-order package
+then add order maker in the test cases
+@pytest.mark.order(numbering)
+
+############## add dependency in the cases #########
+python -m pytest -v  .\test\test_multiple_dependency.py --order-dependencies
+
+### execute specific test from test class
+python -m pytest -v  .\test\test_smoke_class.py::TestSmokeCases::test_a1
+
+
+#remaining
+
+1. test cases dependency : Done
+2. test cases logging
+3. pytest.ini file : Done
+4. pytest test class : Done
+5. Pytest custom command line option
+6. Design framework with POM (Page Object Model)
+7. Custom commandline option.
+8. Pytest config files
+   pytest.ini,
+   tox.ini,
+   pyproject.toml : package version maintain
+   and setup.cfg :
+
+
+##############
+
