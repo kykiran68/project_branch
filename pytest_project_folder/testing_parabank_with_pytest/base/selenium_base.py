@@ -16,7 +16,7 @@ class SeleniumCode:
         return self.wait.until(ec.visibility_of_all_elements_located(locator))
 
     def click_element(self, locator):
-        element = self.wait_for_element_to_be_clickable(locator)
+        element = self.get_element(locator)
         element.click()
 
     def enter_value(self, value, locator):
@@ -28,8 +28,8 @@ class SeleniumCode:
         obj = Select(element)
         obj.select_by_visible_text(value)
 
-    def wait_for_element_to_be_clickable(self, locator):
-        return self.wait.until(ec.element_to_be_clickable(locator))
+    """def wait_for_element_to_be_clickable(self, locator):
+        return self.wait.until(ec.element_to_be_clickable(locator))"""
 
     def teardown(self):
         if self.driver:

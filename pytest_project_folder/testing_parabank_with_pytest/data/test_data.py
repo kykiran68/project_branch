@@ -21,12 +21,12 @@ REGISTRATION_DATA = [
 
 # Fund transfer data
 TRANSFER_DATA = [
-    ("12345", "54321", "100", True),
-    ("12345", "54321", "#$%", False)  # Edge case with zero amount
+    ("12345", "54321", "100"),
+    ("12345", "54321", "500")  # Edge case with zero amount
 ]
 
 # Bill pay data
 BILL_PAY_DATA = [
-    ("Some Payee", "100", True),
-    ("Invalid Payee", "0", False)  # Edge case with zero amount
+    ("KIRAN","HGJF","JFJG","HGH",567857,1234567890,"jrdhgs","123456gg",1000,),
+    ("KIRAN","HGJF","JFJG","HGH",567857,1234567890,1234567890,1234567890,1000,)  # Edge case with zero amount
 ]

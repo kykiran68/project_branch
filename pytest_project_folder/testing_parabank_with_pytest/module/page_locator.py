@@ -26,7 +26,8 @@ class LoginPageLocators:
     ERROR_MESSAGE = (By.CSS_SELECTOR, ".title")
 
 class TransferFundsPageLocators:
-    TRANS_BUTTON = (By.LINK_TEXT, "Transfer Funds")
+    TRANS_BUTTON = (By.XPATH, "(//a[text()='Transfer Funds'])[1]")
+
     FROM_ACCOUNT = (By.ID, "fromAccountId")  # Assuming this is a dropdown
     TO_ACCOUNT = (By.ID, "toAccountId")      # Assuming this is a dropdown
     AMOUNT = (By.CSS_SELECTOR, "input#amount")
@@ -34,9 +35,18 @@ class TransferFundsPageLocators:
     TRANSFER_STATUS = (By.XPATH, "//h1[text()='Transfer Complete!']")
 
 class BillPayPageLocators:
-    PAYEE = (By.NAME, "payee.name")
-    AMOUNT = (By.NAME, "amount")
-    PAY_BUTTON = (By.CSS_SELECTOR, "input[value='Send Payment']")
+
+    BILL_BUTTON = (By.XPATH, "(//a[text()='Bill Pay'])[1]")
+    BILL_NAME = (By.XPATH, "//input[@name='payee.name']")
+    BILL_STREET = (By.XPATH, "//input[@name='payee.address.street']")
+    BILL_CITY = (By.XPATH, "//input[@name='payee.address.city']")
+    BILL_STATE = (By.XPATH, "//input[@name='payee.address.state']")
+    BILL_ZIP = (By.XPATH, "//input[@name='payee.address.zipCode']")
+    BILL_PHONE = (By.XPATH, "//input[@name='payee.phoneNumber']")
+    BILL_ACC = (By.XPATH, "//input[@name='payee.accountNumber']")
+    BILL_ACC1 = (By.XPATH, "//input[@name='verifyAccount']")
+    BILL_AMOUNT = (By.XPATH, "//input[@name='amount']")
+    SEND_BUTTON = (By.XPATH, "//input[@value='Send Payment']")
 
 class LogoutPageLocators:
     LOGOUT_BUTTON = (By.LINK_TEXT, "Log Out")

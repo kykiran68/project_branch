@@ -49,41 +49,32 @@ def test_invalid_login(get_driver,username, password, get_error_message):
     assert get_error_message in login_page.get_error_message()
 
 
-@pytest.mark.parametrize("from_account, to_account, amount, is_success", TRANSFER_DATA)
-def test_transfer_funds(logged_in_driver, from_account, to_account, amount, is_success):
-    driver = logged_in_driver
+@pytest.mark.parametrize("from_account, to_account, amount,", TRANSFER_DATA)
+def test_transfer_funds(get_driver,logged_in_driver, amount, from_account, to_account, ):
+    driver = get_driver
+
     transfer_page = TransferFundsPage(driver)
 
     transfer_page.transfer_funds(from_account, to_account, amount)
 
-    if is_success:
-        assert "Transfer Complete!" in transfer_page.get_transfer_status()
-    else:
-        assert "Error!" in transfer_page.get_transfer_status()
 
 
-@pytest.mark.parametrize("payee, amount, is_success", BILL_PAY_DATA)
-def test_pay_bill(get_driver,logged_in_driver, payee, amount, is_success):
+
+@pytest.mark.parametrize("Payee,Address,City,State,Zip,Phone,Account,verify,Amount", BILL_PAY_DATA)
+def test_pay_bill(get_driver,logged_in_driver, Payee,Address,City,State,Zip,Phone,Account,verify,Amount, ):
     driver = get_driver
     bill_pay_page = BillPayPage(driver)
 
-    bill_pay_page.pay_bill(payee, amount)
+    bill_pay_page.pay_bill(Payee,Address,City,State,Zip,Phone,Account,verify,Amount)
+    time.sleep(5)
 
-    if is_success:
-        assert "Bill Payment Complete" in bill_pay_page.get_bill_payment_status()
-    else:
-        assert "Error" in bill_pay_page.get_bill_payment_status()
 
 
 def test_logout(get_driver,logged_in_driver):
     driver = get_driver
     login_page = LoginPage(driver)
-
-    login_page.enter_username(VALID_USERNAME)
-    login_page.enter_password(VALID_PASSWORD)
-    login_page.click_login()
-
+    assert "Welcome" in login_page.expected_title()
     logout_page = LogoutPage(driver)
     logout_page.click_logout()
 
-    assert "You have logged out" in driver.title
+

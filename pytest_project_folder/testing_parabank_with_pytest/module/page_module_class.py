@@ -1,4 +1,6 @@
 # parabank_testing_with_pytest/module/page_module_class.py
+import time
+
 from base.selenium_base import SeleniumCode
 from module.page_locator import *
 from selenium.webdriver.support.select import Select
@@ -46,15 +48,17 @@ class LoginPage(SeleniumCode):
 class TransferFundsPage(SeleniumCode):
     def transfer_funds(self, from_account, to_account, amount):
         # Click the Transfer Funds link
+        time.sleep(5)
         self.click_element(TransferFundsPageLocators.TRANS_BUTTON)
+        time.sleep(5)
 
         # Select from account from dropdown
         from_account_select = Select(self.get_element(TransferFundsPageLocators.FROM_ACCOUNT))
-        from_account_select.select_by_visible_text(from_account)
+        from_account_select.select_by_value(from_account)
 
         # Select to account from dropdown
         to_account_select = Select(self.get_element(TransferFundsPageLocators.TO_ACCOUNT))
-        to_account_select.select_by_visible_text(to_account)
+        to_account_select.select_by_value(to_account)
 
         # Enter amount
         self.enter_value(amount, TransferFundsPageLocators.AMOUNT)
@@ -68,14 +72,20 @@ class TransferFundsPage(SeleniumCode):
         return self.get_element(TransferFundsPageLocators.TRANSFER_STATUS).text
 
 class BillPayPage(SeleniumCode):
-    def pay_bill(self, payee, amount):
-        self.enter_value(payee, BillPayPageLocators.PAYEE)
-        self.enter_value(amount, BillPayPageLocators.AMOUNT)
-        self.click_element(BillPayPageLocators.PAY_BUTTON)
+    def pay_bill(self, Payee,Address,City,State,Zip,Phone,Account,verify,Amount):
+        self.click_element(BillPayPageLocators.BILL_BUTTON)
+        self.enter_value(Payee,BillPayPageLocators.BILL_NAME)
+        self.enter_value(Address, BillPayPageLocators.BILL_STREET)
+        self.enter_value(City, BillPayPageLocators.BILL_CITY)
+        self.enter_value(State, BillPayPageLocators.BILL_STATE)
+        self.enter_value(Zip, BillPayPageLocators.BILL_ZIP)
+        self.enter_value(Phone, BillPayPageLocators.BILL_PHONE)
+        self.enter_value(Account, BillPayPageLocators.BILL_ACC)
+        self.enter_value(verify, BillPayPageLocators.BILL_ACC1)
+        self.enter_value(Amount, BillPayPageLocators.BILL_AMOUNT)
+        self.click_element(BillPayPageLocators.SEND_BUTTON)
 
-    def get_bill_payment_status(self):
-        # Implement method to get bill payment status
-        pass
+
 
 class LogoutPage(SeleniumCode):
     def click_logout(self):
